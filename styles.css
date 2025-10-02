@@ -1,0 +1,484 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.calculator-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 200px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.semester-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.semester-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e1e5e9;
+}
+
+.semester-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.semester-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.semester-stat {
+    text-align: center;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.semester-stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.semester-stat-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.delete-semester-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 15px;
+}
+
+.delete-semester-btn:hover {
+    background: #c82333;
+}
+
+.course-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 120px 120px 60px;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.serial-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.course-row input, .course-row select {
+    padding: 10px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.add-subject-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+}
+
+.add-subject-btn:hover {
+    background: #218838;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.clear-btn, .next-semester-btn, .prev-cgpa-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.clear-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+}
+
+.next-semester-btn {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+}
+
+.prev-cgpa-btn {
+    background: linear-gradient(135deg, #6f42c1 0%, #5a2d91 100%);
+    color: white;
+}
+
+.clear-btn:hover, .next-semester-btn:hover, .prev-cgpa-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.grade-reference {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 35px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.grade-reference h4 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+}
+
+.grade-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.grade-category {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.category-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.grade-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.grade-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.grade-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.grade-letter {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.grade-point {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.grade-range {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.grade-item.grade-a-plus { background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%); }
+.grade-item.grade-a { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.grade-item.grade-a-minus { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.grade-item.grade-b-plus { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; text-shadow: none; }
+.grade-item.grade-b { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; text-shadow: none; }
+.grade-item.grade-b-minus { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333; text-shadow: none; }
+.grade-item.grade-c-plus { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); color: #333; text-shadow: none; }
+.grade-item.grade-c { background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%); color: #333; text-shadow: none; }
+.grade-item.grade-c-minus { background: linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%); color: #333; text-shadow: none; }
+.grade-item.grade-f { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.previous-semester-card {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border: 2px solid #2196f3;
+}
+
+@media (max-width: 768px) {
+    .course-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .serial-number {
+        justify-self: center;
+        margin-bottom: 10px;
+    }
+    
+    .stats-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .stat-card {
+        min-width: 150px;
+        flex: 1;
+    }
+
+    .semester-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .semester-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .grade-reference {
+        padding: 20px;
+    }
+
+    .grade-categories {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .grade-category {
+        padding: 15px;
+    }
+
+    .category-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .grade-row {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 8px;
+    }
+
+    .grade-item {
+        padding: 12px 8px;
+    }
+
+    .grade-letter {
+        font-size: 1.1rem;
+    }
+
+    .grade-point {
+        font-size: 1rem;
+    }
+
+    .grade-range {
+        font-size: 0.8rem;
+    }
+}
+
